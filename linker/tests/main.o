@@ -1,0 +1,34 @@
+Section header:
+Idx            Name           Size           Offset         
+0              myCode         1c             0              
+1              myData         2              0              
+
+Symbol table: 
+NUM            NAME           VALUE          BIND           SECT_NDX       
+0              UND                                          *UND*          
+1              myCode         0              LOCAL          myCode         
+2              myData         0              LOCAL          myData         
+3              tim_cfg        ff10           LOCAL          *ABS*          
+4              myStart        0              GLOBAL         myCode         
+5              wait           a              LOCAL          myCode         
+6              myCounter      0              GLOBAL         myData         
+
+Content of section #myCode:
+      00 01 02 03 04 05 06 07 
+0000: a0 00 00 00 01 b0 00 04 
+0008: ff 10 a0 00 04 00 00 a0 
+0010: 10 00 00 05 74 01 52 f0 
+0018: 00 00 0a 00 
+
+
+Content of section #myData:
+      00 01 02 03 04 05 06 07 
+0000: 00 00 
+
+
+----------------- Relocation table of section  myCode --------------
+OFFSET         TYPE           VALUE          
+d              R_VN_16        myCounter      
+19             R_VN_16        myCode         
+
+

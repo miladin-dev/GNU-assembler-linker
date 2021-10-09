@@ -1,0 +1,49 @@
+Section header:
+Idx            Name           Size           Offset         
+0              ivt            10             0              
+1              isr            3e             0              
+
+Symbol table: 
+NUM            NAME           VALUE          BIND           SECT_NDX       
+0              UND                                          *UND*          
+1              ivt            0              LOCAL          ivt            
+2              isr            0              LOCAL          isr            
+3              myStart                                      *UND*          
+4              myCounter                                    *UND*          
+5              term_out       ff00           LOCAL          *ABS*          
+6              term_in        ff02           LOCAL          *ABS*          
+7              asciiCode      54             LOCAL          *ABS*          
+8              isr_reset      0              LOCAL          isr            
+9              isr_timer      5              LOCAL          isr            
+10             isr_terminal   16             LOCAL          isr            
+
+Content of section #ivt:
+      00 01 02 03 04 05 06 07 
+0000: 00 00 00 00 05 00 16 00 
+0008: 00 00 00 00 00 00 00 00 
+
+
+Content of section #isr:
+      00 01 02 03 04 05 06 07 
+0000: 50 f0 00 00 00 b0 06 12 
+0008: a0 00 00 00 54 b0 00 04 
+0010: ff 00 a0 06 42 20 b0 06 
+0018: 12 b0 16 12 a0 00 04 ff 
+0020: 02 b0 00 04 ff 00 a0 06 
+0028: 03 ff fe a0 10 00 00 01 
+0030: 70 01 b0 00 04 00 00 a0 
+0038: 16 42 a0 06 42 20 
+
+
+----------------- Relocation table of section  ivt --------------
+OFFSET         TYPE           VALUE          
+0              R_DATA_VN_16   isr            
+4              R_DATA_VN_16   isr            
+6              R_DATA_VN_16   isr            
+
+----------------- Relocation table of section  isr --------------
+OFFSET         TYPE           VALUE          
+3              R_VN_16        myStart        
+29             R_VN_PC_16     myCounter      
+35             R_VN_16        myCounter      
+

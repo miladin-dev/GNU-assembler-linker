@@ -1,0 +1,66 @@
+Section header:
+Idx            Name           Size           Offset         
+0              ivt            10             0              
+1              isr            3e             0              
+2              myCode         1c             0              
+3              myData         2              0              
+
+Symbol table: 
+NUM            NAME           VALUE          BIND           SECT_NDX       
+0              UND                                          *UND*          
+1              ivt            0              LOCAL          ivt            
+2              isr            0              LOCAL          isr            
+3              myCode         0              LOCAL          myCode         
+4              myData         0              LOCAL          myData         
+5              myStart        0              GLOBAL         myCode         
+6              myCounter      0              GLOBAL         myData         
+7              term_out       ff00           LOCAL          *ABS*          
+8              term_in        ff02           LOCAL          *ABS*          
+9              asciiCode      54             LOCAL          *ABS*          
+10             isr_reset      0              LOCAL          isr            
+11             isr_timer      5              LOCAL          isr            
+12             isr_terminal   16             LOCAL          isr            
+13             tim_cfg        ff10           LOCAL          *ABS*          
+14             wait           a              LOCAL          myCode         
+
+Content of section #ivt:
+      00 01 02 03 04 05 06 07 
+0000: 00 00 00 00 05 00 16 00 
+0008: 00 00 00 00 00 00 00 00 
+
+Content of section #isr:
+      00 01 02 03 04 05 06 07 
+0000: 50 f0 00 00 00 b0 06 12 
+0008: a0 00 00 00 54 b0 00 04 
+0010: ff 00 a0 06 42 20 b0 06 
+0018: 12 b0 16 12 a0 00 04 ff 
+0020: 02 b0 00 04 ff 00 a0 06 
+0028: 03 ff fe a0 10 00 00 01 
+0030: 70 01 b0 00 04 00 00 a0 
+0038: 16 42 a0 06 42 20 
+
+Content of section #myCode:
+      00 01 02 03 04 05 06 07 
+0000: a0 00 00 00 01 b0 00 04 
+0008: ff 10 a0 00 04 00 00 a0 
+0010: 10 00 00 05 74 01 52 f0 
+0018: 00 00 0a 00 
+
+
+----------------- Relocation table of section  ivt --------------
+OFFSET         TYPE           VALUE          
+0              R_DATA_VN_16   isr            
+4              R_DATA_VN_16   isr            
+6              R_DATA_VN_16   isr            
+
+----------------- Relocation table of section  isr --------------
+OFFSET         TYPE           VALUE          
+3              R_VN_16        myStart        
+29             R_VN_PC_16     myCounter      
+35             R_VN_16        myCounter      
+
+----------------- Relocation table of section  myCode --------------
+OFFSET         TYPE           VALUE          
+d              R_VN_16        myCounter      
+19             R_VN_16        myCode         
+
